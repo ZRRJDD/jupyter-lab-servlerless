@@ -1,0 +1,66 @@
+{
+  "name": "jupyter-lab-servlerless",
+  "version": "0.1.0",
+  "description": "create and run servlerless Function in JupyterLab",
+  "keywords": [
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab-extension"
+  ],
+  "homepage": "https://github.com/ZRRJDD/jupyter-lab-servlerless",
+  "bugs": {
+    "url": "https://github.com/ZRRJDD/jupyter-lab-servlerless/issues"
+  },
+  "license": "BSD-3-Clause",
+  "author": "ZRRJDD",
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}",
+    "schema/*.json"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "style": "style/index.css",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZRRJDD/jupyter-lab-servlerless.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
+    "prepare": "jlpm run clean && jlpm run build",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@jupyterlab/application": "^1.2.1",
+    "@jupyterlab/apputils": "^1.2.1",
+    "@jupyterlab/coreutils": "^3.2.0",
+    "@jupyterlab/docmanager": "^1.2.1",
+    "@jupyterlab/docregistry": "^1.2.1",
+    "@jupyterlab/htmlviewer": "^1.2.1",
+    "@jupyterlab/notebook": "^1.2.2",
+    "@jupyterlab/services": "^4.2.0",
+    "@jupyterlab/terminal": "^1.2.1"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.1",
+    "typescript": "~3.5.2"
+  },
+  "sideEffects": [
+    "style/*.css"
+  ],
+  "jupyterlab": {
+    "extension": true,
+    "discovery": {
+      "server": {
+        "managers": [
+          "pip"
+        ],
+        "base": {
+          "name": "jupyter-lab-servlerless"
+        }
+      }
+    },
+    "schemaDir": "schema"
+  }
+}
